@@ -1,0 +1,13 @@
+{
+  "loading": "Ładowanie...",
+  "title": "Panel Pogodowy",
+  "temperature": "Temperatura",
+  "humidity": "Wilgotność",
+  "wind_speed": "Prędkość wiatru",
+  "description": "Opis",
+  "enter_city_name": "Wpisz nazwę miasta",
+  "search": "Szukaj",
+  "select_language": "Wybierz język",
+  "city not found": "Nie znaleziono miasta",
+  "checkWeather": "Sprawdź pogodę"
+}
