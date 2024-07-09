@@ -1,0 +1,13 @@
+{
+  "loading": "Loading...",
+  "title": "Weather Dashboard",
+  "temperature": "Temperature",
+  "humidity": "Humidity",
+  "wind_speed": "Wind Speed",
+  "description": "Description",
+  "enter_city_name": "Enter city name",
+  "search": "Search",
+  "select_language": "Select language",
+  "city not found": "City not found",
+  "checkWeather": "Check the weather"
+}
