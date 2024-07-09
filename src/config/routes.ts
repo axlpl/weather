@@ -3,4 +3,4 @@ export const ROUTES = {
     path: '/',
     name: 'Home'
   }
-};
+}

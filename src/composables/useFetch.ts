@@ -1,5 +1,5 @@
 import { ref, shallowRef, type Ref } from 'vue'
-import { useAxios } from '@/plugins/axios'
+import axios, { type AxiosInstance, AxiosError } from 'axios'
 
 export interface ApiResponse<T> {
   data: Ref<T | null>
@@ -17,7 +17,7 @@ export function useFetch<T>(baseURL: string): ApiResponse<T> {
   const error = ref<string | null>(null)
   const loading = ref<boolean>(false)
 
-  const axiosInstance = useAxios({ baseURL })
+  const axiosInstance: AxiosInstance = axios.create({ baseURL })
 
   const request = async (
     method: string,
@@ -36,7 +36,11 @@ export function useFetch<T>(baseURL: string): ApiResponse<T> {
 
       data.value = response.data
     } catch (err) {
-      error.value = err?.response?.data?.message || String(err)
+      if (err instanceof AxiosError) {
+        error.value = err.response?.data?.message || 'An error occurred'
+      } else {
+        error.value = String(err)
+      }
     } finally {
       loading.value = false
     }

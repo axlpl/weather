@@ -6,17 +6,28 @@ import { setActivePinia, createPinia } from 'pinia'
 vi.mock('axios')
 
 describe('useFetch', () => {
+  let mockAxiosInstance: any
+
   beforeEach(() => {
     setActivePinia(createPinia())
     vi.clearAllMocks()
 
-    const mockAxiosInstance = {
+    mockAxiosInstance = {
       request: vi.fn(),
       interceptors: {
         response: {
           use: vi.fn()
         }
-      }
+      },
+      defaults: {},
+      getUri: vi.fn(),
+      get: vi.fn(),
+      delete: vi.fn(),
+      head: vi.fn(),
+      options: vi.fn(),
+      post: vi.fn(),
+      put: vi.fn(),
+      patch: vi.fn()
     }
 
     vi.mocked(axios.create).mockReturnValue(mockAxiosInstance)
@@ -25,7 +36,7 @@ describe('useFetch', () => {
   it('fetches data successfully', async () => {
     const responseData = { message: 'success' }
     const { data, error, loading, request } = useFetch('https://api.example.com')
-    vi.mocked(axios.create().request).mockResolvedValue({ data: responseData })
+    mockAxiosInstance.request.mockResolvedValue({ data: responseData })
 
     await request('get', '/endpoint')
 
@@ -37,7 +48,9 @@ describe('useFetch', () => {
   it('handles fetch error', async () => {
     const errorMessage = 'Network Error'
     const { data, error, loading, request } = useFetch('https://api.example.com')
-    vi.mocked(axios.create().request).mockRejectedValue(new Error(errorMessage))
+    const axiosError = new Error(errorMessage) as any
+    axiosError.response = { data: { message: errorMessage } }
+    mockAxiosInstance.request.mockRejectedValue(axiosError)
 
     await request('get', '/endpoint')
 

@@ -46,7 +46,7 @@ describe('SearchBar.vue', () => {
     })
     const weatherStore = useWeatherStore()
     vi.spyOn(weatherStore, 'fetchWeather').mockResolvedValue()
-    
+
     await wrapper.find('input').setValue('London')
     await wrapper.find('button').trigger('click')
 

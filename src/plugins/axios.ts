@@ -6,7 +6,7 @@ const createAxiosInstance = (config: AxiosRequestConfig): AxiosInstance => {
     timeout: config.timeout || 10000,
     responseType: 'json',
     headers: {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-type': 'application/json'
     }
   })
