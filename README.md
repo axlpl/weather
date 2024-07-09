@@ -24,8 +24,8 @@ This is a weather dashboard application built with Vue 3, Pinia, and TypeScript.
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/weather-dashboard.git
-   cd weather-dashboard
+   git clone https://github.com/axlpl/weather.git
+   cd weather
    ```
 
 2. **Install dependencies:**
@@ -72,13 +72,13 @@ If you prefer to run the application in a Docker container, follow these steps:
 1. **Build the Docker image:**
 
    ```sh
-   docker build -t weather-dashboard .
+   docker build -t weather .
    ```
 
 2. **Run the Docker container:**
 
    ```sh
-   docker run -d -p 8080:80 --env-file .env weather-dashboard
+   docker run -d -p 8080:80 --env-file .env weather
    ```
 
    This will start the application and make it accessible at `http://localhost:8080`.
