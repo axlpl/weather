@@ -15,7 +15,7 @@ This is a weather dashboard application built with Vue 3, Pinia, and TypeScript.
 
 ## Requirements
 
-- Node.js (v14 or later)
+- Node.js (v18.18.0 or later)
 - npm or yarn
 - Docker (optional, for containerized setup)
 
