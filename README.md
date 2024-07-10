@@ -78,10 +78,10 @@ If you prefer to run the application in a Docker container, follow these steps:
 2. **Run the Docker container:**
 
    ```sh
-   docker run -d -p 8080:80 --env-file .env weather
+   docker run -d -p 4173:4173 --env-file .env weather
    ```
 
-   This will start the application and make it accessible at `http://localhost:8080`.
+   This will start the application and make it accessible at `http://localhost:4173`.
 
 ## License
 
